@@ -44,5 +44,46 @@ $(document).ready(function(){
   });
   //perallax
   jQuery(window).trigger('resize').trigger('scroll');
+  //mixitup
+  $('#mix-wrapper').mixItUp({
+    load: {
+      sort: 'order:asc'
+    },
+    animation: {
+      effects: 'fade rotateZ(-180deg)',
+      duration: 700
+    },
+    selectors: {
+      target: '.mix-target',
+      filter: '.filter-btn',
+      sort: '.sort-btn'
+    },
+    callbacks: {
+      onMixEnd: function(state){
+        console.log(state)
+      }
+    }
+  });
+  //ripplejs
+  try {
+		$('.b').ripples({
+			resolution: 256,
+			perturbance: 0.04
+		});
+	}
+	catch (e) {
+		$('.error').show().text(e);
+	}
+  //load more
+  $('.list1 .loadMore').loadMoreResults();
+		$('.list2 .loadMore').loadMoreResults({
+			tag: {
+				name: 'li',
+				'class': 'thumbnail'
+			},
+			displayedItems: 5,
+			showItems: 2
+		});
 
 });
+
